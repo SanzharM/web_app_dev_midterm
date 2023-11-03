@@ -45,7 +45,8 @@ class _ApplicationState extends State<Application> {
           create: (_) => NavBarBloc(),
         ),
         BlocProvider<HomeBloc>(
-          create: (_) => HomeBloc(),
+          lazy: false,
+          create: (_) => HomeBloc()..getPosts(),
         ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
