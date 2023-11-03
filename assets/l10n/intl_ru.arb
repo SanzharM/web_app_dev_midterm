@@ -1,0 +1,29 @@
+{
+    "appLanguage": "Язык приложения",
+    "russian": "Русский",
+    "english": "English",
+    "yes": "Да",
+    "no": "Нет",
+    "error": "Ошибка",
+    "somethingWentWrong": "Что-то пошло не так",
+    "fillTheField": "Заполните поле",
+    "settings": "Настройки",
+    "profile": "Профиль",
+    "posts": "Посты",
+    "post": "Пост",
+    "done": "Готово",
+    "gotIt": "Понятно",
+    "add": "Добавить",
+    "edit": "Изменить",
+    "delete": "Удалить",
+    "cancel": "Отменить",
+    "nLikes": "{n} лайков",
+    "@nLikes": {
+        "placeholders": {
+            "n": {
+                "type": "String",
+                "example": "16.3K"
+            }
+        }
+    }
+}
