@@ -26,7 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("Добавить"),
         "appLanguage": MessageLookupByLibrary.simpleMessage("Язык приложения"),
+        "appTheme": MessageLookupByLibrary.simpleMessage("Тема приложения"),
+        "back": MessageLookupByLibrary.simpleMessage("Назад"),
         "cancel": MessageLookupByLibrary.simpleMessage("Отменить"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Темная"),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "done": MessageLookupByLibrary.simpleMessage("Готово"),
         "edit": MessageLookupByLibrary.simpleMessage("Изменить"),
@@ -34,8 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "fillTheField": MessageLookupByLibrary.simpleMessage("Заполните поле"),
         "gotIt": MessageLookupByLibrary.simpleMessage("Понятно"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Светлая"),
         "listIsEmpty": MessageLookupByLibrary.simpleMessage("Список пуст"),
         "nLikes": m0,
+        "next": MessageLookupByLibrary.simpleMessage("Далее"),
         "no": MessageLookupByLibrary.simpleMessage("Нет"),
         "post": MessageLookupByLibrary.simpleMessage("Пост"),
         "posts": MessageLookupByLibrary.simpleMessage("Посты"),
@@ -44,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
+        "systemTheme": MessageLookupByLibrary.simpleMessage("Системная"),
         "yes": MessageLookupByLibrary.simpleMessage("Да")
       };
 }

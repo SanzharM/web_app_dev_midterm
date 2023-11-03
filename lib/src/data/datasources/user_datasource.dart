@@ -15,18 +15,11 @@ abstract class UserDatasource {
 }
 
 class UserDatasourceImpl implements UserDatasource {
-  const UserDatasourceImpl();
-
   @override
   Future<UserEntity> getUserDetails() async {
     await Future.delayed(getRandomDuration());
 
-    const Map<String, dynamic> data = {
-      'id': 123,
-      'username': 'Sanzh1k',
-      'nickname': 'sanzhar_manabayev'
-    };
-    return UserEntity.fromMap(data);
+    return UserEntity.fromMap(userFakeData);
   }
 
   @override
@@ -36,3 +29,10 @@ class UserDatasourceImpl implements UserDatasource {
     return;
   }
 }
+
+const Map<String, dynamic> userFakeData = {
+  'id': 123,
+  'username': 'Sanzh1k',
+  'nickname': 'sanzhar_manabayev',
+  'avatar_url': 'https://avatars.githubusercontent.com/u/56864444?v=4',
+};

@@ -7,6 +7,10 @@ import 'package:web_app_dev_midterm/src/data/repositories_impl/post_repository_i
 import 'package:web_app_dev_midterm/src/data/repositories_impl/user_repository_impl.dart';
 import 'package:web_app_dev_midterm/src/domain/repository/post_repository.dart';
 import 'package:web_app_dev_midterm/src/domain/repository/user_repository.dart';
+import 'package:web_app_dev_midterm/src/domain/usecase/comment/add_comment_usecase.dart';
+import 'package:web_app_dev_midterm/src/domain/usecase/comment/delete_comment_usecase.dart';
+import 'package:web_app_dev_midterm/src/domain/usecase/post/add_post_usecase.dart';
+import 'package:web_app_dev_midterm/src/domain/usecase/post/delete_post_usecase.dart';
 import 'package:web_app_dev_midterm/src/domain/usecase/post/get_post_usecase.dart';
 import 'package:web_app_dev_midterm/src/domain/usecase/post/get_posts_usecase.dart';
 import 'package:web_app_dev_midterm/src/domain/usecase/user/edit_user_usecase.dart';
@@ -19,33 +23,53 @@ Future<void> initialize() async {
     ..registerLazySingleton(() => AppRouter())
     ..registerLazySingleton(() => const LocalStorage())
 
-    // Datasources
-    ..registerFactory<UserDatasource>(
-      () => UserDatasourceImpl(),
-    )
-    ..registerFactory<PostDatasource>(
-      () => PostDatasourceImpl(),
-    )
-
     // Repos impl
-    ..registerFactory<UserRepository>(
+    ..registerLazySingleton<UserRepository>(
       () => UserRepositoryImpl(sl()),
     )
-    ..registerFactory<PostRepository>(
+    ..registerLazySingleton<PostRepository>(
       () => PostRepositoryImpl(sl()),
     )
 
+    // Datasources
+    ..registerLazySingleton<UserDatasource>(
+      () => UserDatasourceImpl(),
+    )
+    ..registerLazySingleton<PostDatasource>(
+      () => PostDatasourceImpl(),
+    )
+
     // UseCases
+
+    // User
     ..registerLazySingleton<GetUserUseCase>(
       () => GetUserUseCase(sl()),
     )
     ..registerLazySingleton<EditUserUseCase>(
       () => EditUserUseCase(sl()),
     )
+
+    // POST
     ..registerLazySingleton<GetPostUseCase>(
       () => GetPostUseCase(sl()),
     )
     ..registerLazySingleton<GetPostsUseCase>(
       () => GetPostsUseCase(sl()),
+    )
+
+    // CRUD Post
+    ..registerLazySingleton<AddPostUseCase>(
+      () => AddPostUseCase(sl()),
+    )
+    ..registerLazySingleton<DeletePostUseCase>(
+      () => DeletePostUseCase(sl()),
+    )
+
+    // CRUD Comment
+    ..registerLazySingleton<AddCommentUseCase>(
+      () => AddCommentUseCase(sl()),
+    )
+    ..registerLazySingleton<DeleteCommentUseCase>(
+      () => DeleteCommentUseCase(sl()),
     );
 }

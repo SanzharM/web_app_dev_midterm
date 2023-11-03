@@ -100,6 +100,66 @@ class S {
     );
   }
 
+  /// `Далее`
+  String get next {
+    return Intl.message(
+      'Далее',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Назад`
+  String get back {
+    return Intl.message(
+      'Назад',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Тема приложения`
+  String get appTheme {
+    return Intl.message(
+      'Тема приложения',
+      name: 'appTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Системная`
+  String get systemTheme {
+    return Intl.message(
+      'Системная',
+      name: 'systemTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Светлая`
+  String get lightTheme {
+    return Intl.message(
+      'Светлая',
+      name: 'lightTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Темная`
+  String get darkTheme {
+    return Intl.message(
+      'Темная',
+      name: 'darkTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ошибка`
   String get error {
     return Intl.message(
@@ -257,6 +317,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'ru'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 

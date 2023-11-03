@@ -19,6 +19,9 @@ class AppTheme {
         background: ColorName.white,
       ),
 
+      // Icon
+      iconTheme: IconThemeData(color: ColorName.black, size: 24.w),
+
       // Text
       // fontFamily: FontFamily.helvetica,
       textTheme: getTextTheme(
@@ -30,6 +33,7 @@ class AppTheme {
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         titleTextStyle: getTextTheme(color: ColorName.black).headlineMedium,
+        iconTheme: IconThemeData(color: ColorName.white, size: 24.w),
       ),
       cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
         primaryColor: ColorName.black,
@@ -57,6 +61,9 @@ class AppTheme {
         background: ColorName.white,
       ),
 
+      // Icon
+      iconTheme: IconThemeData(color: ColorName.white, size: 24.w),
+
       // Text
       // fontFamily: FontFamily.helvetica,
       textTheme: getTextTheme(
@@ -68,6 +75,7 @@ class AppTheme {
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         titleTextStyle: getTextTheme(color: ColorName.white).headlineMedium,
+        iconTheme: IconThemeData(color: ColorName.white, size: 24.w),
       ),
       cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
         primaryColor: ColorName.white,

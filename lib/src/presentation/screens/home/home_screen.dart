@@ -25,6 +25,10 @@ class HomeScreen extends StatelessWidget {
         if (state.status.isError) {
           return context.showSnackBar(state.message);
         }
+
+        if (state is HomePostLoadedState) {
+          context.router.push<void>(PostDetailsRoute(post: state.post));
+        }
       },
       builder: (context, state) {
         Widget getBody() {
@@ -74,13 +78,7 @@ class HomeScreen extends StatelessWidget {
           ),
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverAppBar(
-              leading: AppIconButton(
-                padding: EdgeInsets.zero,
-                icon: const Icon(CupertinoIcons.profile_circled),
-                onPressed: () {
-                  // Open Drawer
-                },
-              ),
+              automaticallyImplyLeading: false,
               centerTitle: true,
               title: Assets.icons.logoBlack.image(
                 height: 42.h,
@@ -96,9 +94,14 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ],
-          body: AnimatedSwitcher(
-            duration: Utils.animationDuration,
-            child: getBody(),
+          body: RefreshIndicator.adaptive(
+            onRefresh: () async {
+              context.read<HomeBloc>().getPosts();
+            },
+            child: AnimatedSwitcher(
+              duration: Utils.animationDuration,
+              child: getBody(),
+            ),
           ),
         );
       },

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:web_app_dev_midterm/src/core/extensions/extensions.dart';
+import 'package:web_app_dev_midterm/src/core/l10n/l10n_service.dart';
 
 class PostWidget extends StatelessWidget {
   const PostWidget({
@@ -38,7 +39,7 @@ class PostWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
+            padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -77,11 +78,16 @@ class _ImageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 36.w,
       width: 36.w,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16.0)),
+      ),
       child: CachedNetworkImage(
         imageUrl: url ?? '',
+        width: double.maxFinite,
+        height: double.maxFinite,
         errorWidget: (context, url, error) {
           return const Icon(CupertinoIcons.exclamationmark_circle_fill);
         },
@@ -117,15 +123,16 @@ class _PostContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: <Widget>[
             Text(
-              author ?? 'Author',
+              author ?? 'Unknown author',
               textAlign: TextAlign.left,
               style: context.theme.textTheme.titleMedium,
             ),
             if (nickname?.isNotEmpty ?? false)
               Text(
-                nickname!,
+                ' ${nickname!}',
                 textAlign: TextAlign.left,
                 style: context.theme.textTheme.bodySmall?.apply(
                   color: context.theme.hintColor,
@@ -146,6 +153,23 @@ class _PostContent extends StatelessWidget {
         ],
         SizedBox(height: 16.h),
         // Attachments
+
+        // Likes
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(
+              CupertinoIcons.heart,
+              color: context.theme.primaryColor,
+              size: 16.w,
+            ),
+            SizedBox(width: 8.w),
+            Text(
+              L10n.of(context).nLikes(likes!),
+              style: context.theme.textTheme.bodySmall,
+            ),
+          ],
+        )
       ],
     );
   }

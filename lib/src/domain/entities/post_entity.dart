@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:web_app_dev_midterm/src/core/utils/utils.dart';
+import 'package:web_app_dev_midterm/src/domain/entities/comment_entity.dart';
 
 class PostEntity extends Equatable {
   final int? id;
@@ -12,6 +13,7 @@ class PostEntity extends Equatable {
   final DateTime? postedAt;
   final String? text;
   final List<String>? attachments;
+  final List<CommentEntity> comments;
 
   const PostEntity({
     this.id,
@@ -21,6 +23,7 @@ class PostEntity extends Equatable {
     this.postedAt,
     this.text,
     this.attachments,
+    this.comments = const [],
   });
 
   PostEntity copyWith({
@@ -31,6 +34,7 @@ class PostEntity extends Equatable {
     ValueGetter<DateTime?>? postedAt,
     ValueGetter<String?>? text,
     ValueGetter<List<String>?>? attachments,
+    ValueGetter<List<CommentEntity>>? comments,
   }) {
     return PostEntity(
       id: id != null ? id() : this.id,
@@ -40,6 +44,7 @@ class PostEntity extends Equatable {
       postedAt: postedAt != null ? postedAt() : this.postedAt,
       text: text != null ? text() : this.text,
       attachments: attachments != null ? attachments() : this.attachments,
+      comments: comments != null ? comments() : this.comments,
     );
   }
 
@@ -52,6 +57,7 @@ class PostEntity extends Equatable {
       'postedAt': postedAt?.millisecondsSinceEpoch,
       'text': text,
       'attachments': attachments,
+      'comments': comments.map((e) => e.toMap()).toList(),
     };
   }
 
@@ -66,6 +72,9 @@ class PostEntity extends Equatable {
       attachments: map['attachments'] != null && map['attachments'] is List
           ? (map['attachments'] as List).map((e) => '$e').toList()
           : null,
+      comments: map['comments'] != null && map['comments'] is List
+          ? (map['comments'] as List).map((e) => CommentEntity.fromMap(e)).toList()
+          : const [],
     );
   }
 
@@ -88,6 +97,7 @@ class PostEntity extends Equatable {
       postedAt,
       text,
       attachments,
+      comments,
     ];
   }
 }

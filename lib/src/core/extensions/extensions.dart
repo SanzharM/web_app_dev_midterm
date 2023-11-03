@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,4 +53,35 @@ extension XThemeMode on ThemeMode {
   bool get isSystem => this == ThemeMode.system;
   bool get isLight => this == ThemeMode.light;
   bool get isDark => this == ThemeMode.dark;
+
+  String get nameLocalized {
+    switch (this) {
+      case ThemeMode.system:
+        return L10n.current.systemTheme;
+      case ThemeMode.light:
+        return L10n.current.lightTheme;
+      case ThemeMode.dark:
+        return L10n.current.darkTheme;
+    }
+  }
+
+  Widget icon({Color? color}) {
+    switch (this) {
+      case ThemeMode.system:
+        return Icon(
+          CupertinoIcons.device_phone_portrait,
+          color: color,
+        );
+      case ThemeMode.light:
+        return Icon(
+          CupertinoIcons.sun_max_fill,
+          color: color,
+        );
+      case ThemeMode.dark:
+        return Icon(
+          CupertinoIcons.moon_stars_fill,
+          color: color,
+        );
+    }
+  }
 }

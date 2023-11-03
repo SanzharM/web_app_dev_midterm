@@ -1,0 +1,36 @@
+{
+    "appLanguage": "App Language",
+    "russian": "Русский",
+    "english": "English",
+    "yes": "Yes",
+    "no": "No",
+    "next": "Next",
+    "back": "Back",
+    "appTheme": "App Theme",
+    "systemTheme": "System",
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "error": "Error",
+    "somethingWentWrong": "Something went wrong",
+    "fillTheField": "Fill the field",
+    "settings": "Settings",
+    "profile": "Profile",
+    "posts": "Posts",
+    "post": "Post",
+    "done": "Done",
+    "gotIt": "Got it",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "nLikes": "{n} likes",
+    "@nLikes": {
+        "placeholders": {
+            "n": {
+                "type": "String",
+                "example": "16.3K"
+            }
+        }
+    },
+    "listIsEmpty": "List is empty"
+}

@@ -44,6 +44,17 @@ class _$AppRouter extends RootStackRouter {
         child: const ProfileScreen(),
       );
     },
+    PostDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<PostDetailsRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: PostDetailsScreen(
+          key: args.key,
+          post: args.post,
+        )),
+      );
+    },
   };
 
   @override
@@ -63,6 +74,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ProfileRoute.name,
           path: '/profile-screen',
+        ),
+        RouteConfig(
+          PostDetailsRoute.name,
+          path: '/post-details-screen',
         ),
       ];
 }
@@ -113,4 +128,38 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [PostDetailsScreen]
+class PostDetailsRoute extends PageRouteInfo<PostDetailsRouteArgs> {
+  PostDetailsRoute({
+    Key? key,
+    required PostEntity post,
+  }) : super(
+          PostDetailsRoute.name,
+          path: '/post-details-screen',
+          args: PostDetailsRouteArgs(
+            key: key,
+            post: post,
+          ),
+        );
+
+  static const String name = 'PostDetailsRoute';
+}
+
+class PostDetailsRouteArgs {
+  const PostDetailsRouteArgs({
+    this.key,
+    required this.post,
+  });
+
+  final Key? key;
+
+  final PostEntity post;
+
+  @override
+  String toString() {
+    return 'PostDetailsRouteArgs{key: $key, post: $post}';
+  }
 }

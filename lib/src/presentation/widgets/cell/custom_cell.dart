@@ -10,17 +10,15 @@ class CustomCell extends StatelessWidget {
     super.key,
     this.title,
     this.leading,
-    this.subtitle1,
-    this.subtitle2,
+    this.subtitle,
     this.icon,
     this.onPressed,
-    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   });
 
   final String? title;
   final Widget? leading;
-  final String? subtitle1;
-  final String? subtitle2;
+  final String? subtitle;
   final Widget? icon;
   final void Function()? onPressed;
 
@@ -29,8 +27,7 @@ class CustomCell extends StatelessWidget {
   factory CustomCell.leadingImage({
     String? title,
     String? imageUrl,
-    String? subtitle1,
-    String? subtitle2,
+    String? subtitle,
     Widget? icon,
     void Function()? onPressed,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
@@ -48,8 +45,7 @@ class CustomCell extends StatelessWidget {
     return CustomCell(
       leading: image,
       title: title,
-      subtitle1: subtitle1,
-      subtitle2: subtitle2,
+      subtitle: subtitle,
       icon: icon,
       onPressed: onPressed,
       crossAxisAlignment: crossAxisAlignment,
@@ -82,20 +78,10 @@ class CustomCell extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 8.h),
-                if (subtitle1?.isNotEmpty ?? false) ...[
+                if (subtitle?.isNotEmpty ?? false) ...[
+                  SizedBox(height: 8.h),
                   Text(
-                    subtitle1!,
-                    textAlign: TextAlign.left,
-                    style: context.theme.textTheme.bodySmall?.apply(
-                      color: ColorName.darkGrey,
-                    ),
-                  ),
-                  SizedBox(height: 4.h),
-                ],
-                if (subtitle2?.isNotEmpty ?? false) ...[
-                  Text(
-                    subtitle2!,
+                    subtitle!,
                     textAlign: TextAlign.left,
                     style: context.theme.textTheme.bodySmall?.apply(
                       color: ColorName.darkGrey,

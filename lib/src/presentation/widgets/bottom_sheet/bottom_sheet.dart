@@ -26,7 +26,10 @@ mixin CustomBottomSheetMixin {
       elevation: 0,
       useSafeArea: false,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
+        ),
       ),
       backgroundColor: context.theme.scaffoldBackgroundColor,
       builder: (_) => Column(

@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        height: height ?? 44.h,
+        height: height ?? 48.h,
         width: double.maxFinite,
         constraints: const BoxConstraints(minHeight: 32.0),
         padding: padding ?? EdgeInsets.all(8.h),

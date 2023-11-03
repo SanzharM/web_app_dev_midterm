@@ -6,6 +6,7 @@ import 'package:web_app_dev_midterm/src/core/l10n/l10n_service.dart';
 import 'package:web_app_dev_midterm/src/core/utils/utils.dart';
 import 'package:web_app_dev_midterm/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:web_app_dev_midterm/src/presentation/screens/nav_bar/bloc/nav_bar_bloc.dart';
+import 'package:web_app_dev_midterm/src/presentation/screens/profile/bloc/user_bloc.dart';
 import 'package:web_app_dev_midterm/src/presentation/theme/app_theme.dart';
 import 'package:web_app_dev_midterm/src/service_locator.dart';
 
@@ -46,7 +47,11 @@ class _ApplicationState extends State<Application> {
         ),
         BlocProvider<HomeBloc>(
           lazy: false,
-          create: (_) => HomeBloc()..getPosts(),
+          create: (_) => HomeBloc(sl(), sl())..getPosts(),
+        ),
+        BlocProvider<UserBloc>(
+          lazy: false,
+          create: (_) => UserBloc()..get(),
         ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
