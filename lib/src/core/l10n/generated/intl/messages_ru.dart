@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "fillTheField": MessageLookupByLibrary.simpleMessage("Заполните поле"),
         "gotIt": MessageLookupByLibrary.simpleMessage("Понятно"),
+        "listIsEmpty": MessageLookupByLibrary.simpleMessage("Список пуст"),
         "nLikes": m0,
         "no": MessageLookupByLibrary.simpleMessage("Нет"),
         "post": MessageLookupByLibrary.simpleMessage("Пост"),

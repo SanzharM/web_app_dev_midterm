@@ -19,20 +19,20 @@ Future<void> initialize() async {
     ..registerLazySingleton(() => AppRouter())
     ..registerLazySingleton(() => const LocalStorage())
 
-    // Repo impl
-    ..registerLazySingleton<UserRepository>(
-      () => UserRepositoryImpl(sl()),
+    // Datasources
+    ..registerFactory<UserDatasource>(
+      () => UserDatasourceImpl(),
     )
-    ..registerLazySingleton<PostRepository>(
-      () => PostRepositoryImpl(sl()),
+    ..registerFactory<PostDatasource>(
+      () => PostDatasourceImpl(),
     )
 
-    // Datasources
-    ..registerLazySingleton<UserDatasource>(
-      () => UserDatasourceImpl(sl(), sl()),
+    // Repos impl
+    ..registerFactory<UserRepository>(
+      () => UserRepositoryImpl(sl()),
     )
-    ..registerLazySingleton<PostDatasource>(
-      () => PostDatasourceImpl(sl(), sl()),
+    ..registerFactory<PostRepository>(
+      () => PostRepositoryImpl(sl()),
     )
 
     // UseCases

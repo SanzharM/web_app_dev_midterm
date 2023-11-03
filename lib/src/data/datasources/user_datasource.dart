@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:web_app_dev_midterm/src/core/local_storage/local_storage.dart';
 import 'package:web_app_dev_midterm/src/domain/entities/user_entity.dart';
 import 'package:web_app_dev_midterm/src/domain/usecase/user/edit_user_usecase.dart';
 
@@ -16,10 +15,7 @@ abstract class UserDatasource {
 }
 
 class UserDatasourceImpl implements UserDatasource {
-  final dynamic _api;
-  final LocalStorage _localStorage;
-
-  const UserDatasourceImpl(this._api, this._localStorage);
+  const UserDatasourceImpl();
 
   @override
   Future<UserEntity> getUserDetails() async {

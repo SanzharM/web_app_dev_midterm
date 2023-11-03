@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:web_app_dev_midterm/src/core/local_storage/local_storage.dart';
 import 'package:web_app_dev_midterm/src/domain/entities/post_entity.dart';
 import 'package:web_app_dev_midterm/src/domain/usecase/post/get_post_usecase.dart';
 
@@ -16,10 +15,7 @@ abstract class PostDatasource {
 }
 
 class PostDatasourceImpl implements PostDatasource {
-  final dynamic _api;
-  final LocalStorage _localStorage;
-
-  const PostDatasourceImpl(this._api, this._localStorage);
+  const PostDatasourceImpl();
 
   @override
   Future<PostEntity> getPostDetails(GetPostParams params) async {

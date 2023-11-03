@@ -239,6 +239,16 @@ class S {
       args: [n],
     );
   }
+
+  /// `Список пуст`
+  String get listIsEmpty {
+    return Intl.message(
+      'Список пуст',
+      name: 'listIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
